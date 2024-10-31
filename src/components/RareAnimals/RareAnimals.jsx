@@ -1,13 +1,18 @@
 import React from "react";
-
+import classNames from "classnames";
 import RareImage4 from "../../assets/rare/RareImage4.png";
 import RareImage5 from "../../assets/rare/RareImage5.png";
 import RareImage6 from "../../assets/rare/RareImage6.png";
-
+import logomember from "../../assets/member/Whalelogo.png";
+import { SiMagento } from "react-icons/si";
+import { IoInformationCircleSharp } from "react-icons/io5";
+import { FaRocketchat } from "react-icons/fa";
+import { GiTakeMyMoney } from "react-icons/gi";
 const Rarewilds = [
   {
     id: 1,
     name: "blue whale",
+
     image: RareImage5,
     description:
       "Currently, the number of blue whales worldwide is estimated to only be about 10,000 to 25,000 individuals and is decreasing due to environmental damage.",
@@ -28,9 +33,40 @@ const Rarewilds = [
   },
 ];
 
+const interest = [
+  {
+    id: 1,
+    svg: <SiMagento style={{ color: "white" }} />,
+    aosDlay: 100,
+    color: "bg-blue-300",
+    detail: "Album animal diversity and fantacy",
+  },
+  {
+    id: 2,
+    svg: <IoInformationCircleSharp style={{ color: "white" }} />,
+    aosDlay: 200,
+    color: "bg-green-300",
+    detail: "Receive daily information updates",
+  },
+  {
+    id: 3,
+    svg: <FaRocketchat style={{ color: "white" }} />,
+    aosDlay: 300,
+    color: "bg-yellow-300",
+    detail: "Priority is given to participating and commenting on the forum",
+  },
+  {
+    id: 4,
+    svg: <GiTakeMyMoney style={{ color: "white" }} />,
+    aosDlay: 400,
+    color: "bg-purple-300",
+    detail: "Receive vouchers to buy products every week",
+  },
+];
+
 const RareAnimals = () => {
   return (
-    <div className="dark:bg-gray-800">
+    <div className="dark:bg-gray-800 ">
       <div className="container">
         {/* header */}
         <div className="text-left mb-32">
@@ -78,6 +114,42 @@ const RareAnimals = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="flex container pt-32">
+        <div data-aos="zoom-in" className="flex-1 pl-20  ">
+          <img
+            src={logomember}
+            alt=""
+            className="rounded-full h-[400px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover"
+          />
+        </div>
+        <div className="flex-1 space-y-5" data-aos="fade-up">
+          <h1 className="text-3xl font-bold dark:text-white">
+            A membership card sale upto 50% off
+          </h1>
+          <p className="text-sm text-gray-500">
+            Enjoy the services and amenities we promise will be interesting and
+            satisfying for only 200.000 vnđ
+          </p>
+          <div className="space-y-5">
+            {interest.map((inter) => (
+              <div
+                data-aos="fade-up"
+                key={inter.id}
+                className="flex items-center "
+                data-aos-delay={inter.aosDlay}
+              >
+                <div className={classNames(`p-5 rounded-full ${inter.color} `)}>
+                  {inter.svg}
+                </div>
+                <p className="ml-4 text-gray-500 dark:text-white font-bold">
+                  {inter.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
