@@ -5,6 +5,7 @@ import Product from "./components/Product/Product";
 import RareAnimals from "./components/RareAnimals/RareAnimals";
 import Premium from "./components/Premium/Premium";
 import Saleproduct from "./components/SaleProduct/Saleproduct";
+import Comment from "./components/Comment/Comment";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
       <RareAnimals />
       <Premium />
       <Saleproduct />
+      <Comment />
     </div>
   );
 };

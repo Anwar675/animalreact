@@ -5,7 +5,7 @@ import backg from "../../assets/member/Doggie.png";
 const Premium = () => {
   return (
     <div
-      className={classNames(`block text-center mt-28 bg-yellow-600`)}
+      className={classNames(`block text-center pb-8`)}
       style={{
         backgroundImage: `url(${backg})`,
         backgroundSize: "cover",
@@ -13,7 +13,7 @@ const Premium = () => {
       }}
     >
       <div className="space-y-5 container">
-        <div className="text-3xl font-bold text-white pt-14">
+        <div className="text-3xl font-bold text-white pt-14 ">
           <h1>Get Notified About Latest Updates On Your Benefits</h1>
         </div>
         <div>
