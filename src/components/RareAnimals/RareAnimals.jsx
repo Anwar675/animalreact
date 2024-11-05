@@ -88,16 +88,18 @@ const RareAnimals = () => {
           {Rarewilds.map((data, index) => (
             <div
               data-aos="zoom-in"
-              className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-[#7d754b] hover:text-white relative shadow-xl duration-hight group w-[300px] h-[250px]"
+              className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-[#7d754b] hover:text-white relative shadow-xl duration-hight group sm:w-[300px] sm:h-[250px] md:w-[200px] lg:w-[300px] lg:h-[250px]"
             >
               {/* Image section */}
               <div className="h-[100px]">
                 <img
                   src={data.image}
                   alt=""
-                  className={`max-w-[210px] block mx-auto transform ${
-                    data.id === 3 ? "-translate-y-32" : "-translate-y-24"
-                  } group-hover:scale-105 duration-300 drop-shadow-sm `}
+                  className={`max-w-[150px] md:max-w-[150px]  lg:max-w-[210px] block mx-auto transform  ${
+                    data.id === 3
+                      ? "sm:-translate-y-32  md:translate-y-[-70px] lg:-translate-y-28"
+                      : "sm-translate-y-24 -translate-y-20 "
+                  } group-hover:scale-105 duration-300 drop-shadow-sm`}
                 />
               </div>
               {/* details */}
@@ -117,15 +119,15 @@ const RareAnimals = () => {
         </div>
       </div>
 
-      <div className="flex container pt-32">
-        <div data-aos="zoom-in" className="flex-1 pl-20  ">
+      <div className="sm:flex container pt-32">
+        <div data-aos="zoom-in" className="flex-1 lg:pl-20  ">
           <img
             src={logomember}
             alt=""
-            className="rounded-full h-[400px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover"
+            className="rounded-full sm:h-[300px] xl:h-[400px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover"
           />
         </div>
-        <div className="flex-1 space-y-5" data-aos="fade-up">
+        <div className="flex-1 space-y-5 sm:p-0 pt-10" data-aos="fade-up">
           <h1 className="text-3xl font-bold dark:text-white">
             A membership card sale upto 50% off
           </h1>

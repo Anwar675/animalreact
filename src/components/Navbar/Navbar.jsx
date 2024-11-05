@@ -14,25 +14,25 @@ const Menu = [
   {
     id: 2,
     name: "Wild Animals",
-    link: "/wildanimal",
-    subMenu: [
-      {
-        name: "Birds",
-        link: "/wildbird",
-      },
-      {
-        name: "Reptile",
-        link: "/reptile",
-      },
-      {
-        name: "Insect",
-        link: "/insect ",
-      },
-      {
-        name: "Marine life",
-        link: "/marinelife",
-      },
-    ],
+
+    // subMenu: [
+    //   {
+    //     name: "Birds",
+    //     link: "/wildbird",
+    //   },
+    //   {
+    //     name: "Reptile",
+    //     link: "/reptile",
+    //   },
+    //   {
+    //     name: "Insect",
+    //     link: "/insect ",
+    //   },
+    //   {
+    //     name: "Marine life",
+    //     link: "/marinelife",
+    //   },
+    // ],
   },
   {
     id: 3,
@@ -49,31 +49,44 @@ const Menu = [
     name: "Image",
     link: "/#image",
   },
+];
+
+const Dropdownlink2 = [
   {
-    id: 6,
-    name: "Help",
-    link: "/#help",
-    subMenu: [
-      {
-        name: "Góp Ý kiến thêm ",
-        link: "/document",
-      },
-      {
-        name: "Vấn đề kĩ thuật",
-        link: "/report ",
-      },
-    ],
+    id: 1,
+    name: "Birds",
+    link: "/wildbird",
+  },
+  {
+    id: 2,
+    name: "Reptile",
+    link: "/reptile",
+  },
+  {
+    id: 3,
+    name: "Insect",
+    link: "/insect ",
+  },
+  {
+    id: 4,
+    name: "Marine life",
+    link: "/marinelife",
   },
 ];
 
+const Dropdownlink = [
+  {
+    id: 1,
+    name: "Contribute comments",
+    link: "/#comment",
+  },
+  {
+    id: 2,
+    name: "Technical problem",
+    link: "/#report",
+  },
+];
 const Navbar = () => {
-  const [type, setType] = React.useState(null);
-  const handleMountEnter = (id) => {
-    setType(id);
-  };
-  const handleMountleave = (id) => {
-    setType(null);
-  };
   return (
     <div className="shadow-lg dark:bg-gray-900 dark:text-white">
       <div className="bg-primary/50 py-1">
@@ -108,41 +121,60 @@ const Navbar = () => {
       </div>
       {/* Lower navbar */}
       <div className="flex justify-center dark:bg-slate-800">
-        <ul className="sm:flex hidden items-center gap-[7.25rem] ">
+        <ul className="sm:flex hidden items-center lg:gap-[6.25rem] gap-4 ">
           {Menu.map((data) => (
-            <li
-              key={data.id}
-              onMouseEnter={() => handleMountEnter(data.id)}
-              onMouseLeave={handleMountleave}
-              className="relative group py-1"
-            >
+            <li key={data.id} className="relative group p-1">
               <a
                 href={data.link}
-                className="hover:text-primary flex items-center"
+                className="hover:text-primary flex items-center gap-[2px] py-2 "
               >
-                {data.name}{" "}
-                {data.subMenu && (
-                  <FaAngleUp
-                    className={`ml-1 transition-transform duration-200 ${
-                      type === data.id ? "rotate-180" : ""
-                    }  `}
-                  />
+                {data.name}
+                {data.id === 2 ? (
+                  <span>
+                    <FaAngleUp className="ml-1 transition-transform duration-200 group-hover:rotate-180" />
+                  </span>
+                ) : (
+                  ""
                 )}
               </a>
-              {data.subMenu && type === data.id && (
-                <ul className="absolute left-0 my-1 bg-transparent z-50 dark:bg-white w-[150px] rounded-[10px] overflow-hidden">
-                  {data.subMenu.map((sub, index) => (
-                    <li
-                      key={index}
-                      className="py-1 text-gray-800 hover:text-primary dark:hover:bg-[#ffeaa6]  dark:hover:text-black"
-                    >
-                      <a href={sub.link}>{sub.name}</a>
-                    </li>
-                  ))}
-                </ul>
+              {data.id === 2 ? (
+                <div className="absolute z-[9999] hidden group-hover:block w-[180px]  rounded-md bg-white  text-black">
+                  <ul>
+                    {Dropdownlink2.map((data) => (
+                      <li
+                        key={data.id}
+                        className="rounded-md w-full p-3 hover:bg-primary"
+                      >
+                        <a href={data.link}>{data.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                ""
               )}
             </li>
           ))}
+          <li className="group relative cursor-pointer">
+            <a href="#" className="flex items-center gap-[2px] py-2">
+              Help
+              <span>
+                <FaAngleUp className="ml-1 transition-transform duration-200 group-hover:rotate-180" />
+              </span>
+            </a>
+            <div className="absolute z-[9999] hidden group-hover:block w-[180px]  rounded-md bg-white  text-black">
+              <ul>
+                {Dropdownlink.map((data) => (
+                  <li
+                    key={data.id}
+                    className="rounded-md w-full p-3 hover:bg-primary"
+                  >
+                    <a href={data.link}>{data.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

@@ -78,8 +78,8 @@ const Comment = () => {
     ],
   };
   return (
-    <div>
-      <div className="container pb-24 text-center">
+    <div className="dark:bg-gray-800">
+      <div className="container pb-24 text-center ">
         <div className="text-center mb-12">
           <p className="text-textcolor text-[18px]" data-aos="fade-up">
             What do people on the forum say?
@@ -96,7 +96,7 @@ const Comment = () => {
           </p>
         </div>
         {/* Comment card */}
-        <div>
+        <div data-aos="zoom-in">
           <Slider {...settings}>
             {commentData.map((data) => (
               <div className="my-6">

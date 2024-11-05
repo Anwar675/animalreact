@@ -57,39 +57,40 @@ const Wild = () => {
                   data-aos="fade up"
                   data-aos-duaration="500"
                   data-aos-delay="100"
+                  className="relative"
                 >
                   <img
                     src={item.image}
                     alt=""
-                    className="h-[500px] w-[1000px]  "
+                    className="sm:h-[500px] sm:w-[1000px]  h-[400px] w-[380px]"
                   />
-                </div>
-                <div className="absolute bottom-[10%] right-[20%] text-right w-[500px]">
-                  <h1
-                    className=" sm:text-6xl lg:text-4xl text-white font-bold mb-4"
-                    data-aos="fade up"
-                    data-aos-duaration="500"
-                    data-aos-delay="300"
-                  >
-                    {item.title}
-                  </h1>
-                  <p
-                    className="text-sm text-white my-4"
-                    data-aos="fade up"
-                    data-aos-duaration="500"
-                    data-aos-delay="300"
-                  >
-                    {item.description}
-                  </p>
-                  <div>
-                    <button
+                  <div className="absolute bottom-10 left-8 text-left sm:w-[500px] w-[300px] ">
+                    <h1
+                      className=" sm:text-6xl lg:text-4xl text-white font-bold mb-4"
                       data-aos="fade up"
                       data-aos-duaration="500"
-                      data-aos-delay="500"
-                      className="bg-gradient-to-r from-primary to-[#bdb487] hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                      data-aos-delay="300"
                     >
-                      Views More
-                    </button>
+                      {item.title}
+                    </h1>
+                    <p
+                      className="text-sm text-white my-4"
+                      data-aos="fade up"
+                      data-aos-duaration="500"
+                      data-aos-delay="300"
+                    >
+                      {item.description}
+                    </p>
+                    <div>
+                      <button
+                        data-aos="fade up"
+                        data-aos-duaration="500"
+                        data-aos-delay="500"
+                        className="bg-gradient-to-r from-primary to-[#bdb487] hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                      >
+                        Views More
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -49,10 +49,10 @@ const Product = () => {
               data-aos="fade-up"
               data-aos-delay={data.aosDelay}
               key={data.id}
-              className={`space-y-2 flex flex-col transform ${
+              className={`space-y-2 flex flex-col ${
                 index % 2 === 0
-                  ? "-translate-y-8 -mt-12"
-                  : " mt-20 translate-y-8"
+                  ? "sm:-translate-y-8 lg:-translate-y-8 sm:-mt-12"
+                  : "sm:mt-20 lg:translate-y-8"
               }`}
             >
               <img

@@ -49,7 +49,7 @@ const Saleproduct = () => {
             Support us by purchasing our quality products
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5 place-items-center ">
+        <div className="grid sm:grid-cols-4 grid-cols-1 gap-5 place-items-center ">
           {itemsPro.map((item) => (
             <div
               key={item.id}

@@ -6,6 +6,7 @@ import RareAnimals from "./components/RareAnimals/RareAnimals";
 import Premium from "./components/Premium/Premium";
 import Saleproduct from "./components/SaleProduct/Saleproduct";
 import Comment from "./components/Comment/Comment";
+import Footer from "./components/Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <Premium />
       <Saleproduct />
       <Comment />
+      <Footer />
     </div>
   );
 };
