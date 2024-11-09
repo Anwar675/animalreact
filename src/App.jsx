@@ -8,8 +8,14 @@ import Saleproduct from "./components/SaleProduct/Saleproduct";
 import Comment from "./components/Comment/Comment";
 import Footer from "./components/Footer/Footer";
 import AOS from "aos";
+
 import "aos/dist/aos.css";
+import User from "./components/User/User";
 const App = () => {
+  const [userOder, setUserOder] = React.useState(false);
+  const handleUserLogin = () => {
+    setUserOder(!userOder);
+  };
   React.useEffect(() => {
     AOS.init({
       offset: 100,
@@ -21,7 +27,7 @@ const App = () => {
   }, []);
   return (
     <div>
-      <Navbar />
+      <Navbar handleUserLogin={handleUserLogin} />
       <Wild />
       <Product />
       <RareAnimals />
@@ -29,6 +35,7 @@ const App = () => {
       <Saleproduct />
       <Comment />
       <Footer />
+      <User userOder={userOder} setUserOder={setUserOder} />
     </div>
   );
 };
