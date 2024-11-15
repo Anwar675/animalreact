@@ -11,12 +11,16 @@ import AOS from "aos";
 
 import "aos/dist/aos.css";
 import User from "./components/User/User";
+
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userOder, setUserOder] = React.useState(false);
-  const handleUserLogin = () => {
-    setUserOder(!userOder);
-  };
   React.useEffect(() => {
+    // Check if user is already logged in
+    const isLoggedIn = localStorage.getItem("isLogin") === "true";
+    setIsLoggedIn(isLoggedIn);
+
+    // Initialize AOS (animation on scroll)
     AOS.init({
       offset: 100,
       duration: 800,
@@ -25,17 +29,26 @@ const App = () => {
     });
     AOS.refresh();
   }, []);
+  const handleUserLogin = () => {
+    setIsLoggedIn(false);
+    setUserOder(!userOder);
+  };
+
   return (
     <div>
-      <Navbar handleUserLogin={handleUserLogin} />
+      <Navbar handleUserLogin={handleUserLogin} isLoggedIn={isLoggedIn} />
       <Wild />
       <Product />
       <RareAnimals />
       <Premium />
-      <Saleproduct />
+      <Saleproduct handleUserLogin={handleUserLogin} />
       <Comment />
       <Footer />
-      <User userOder={userOder} setUserOder={setUserOder} />
+      <User
+        userOder={userOder}
+        setUserOder={setUserOder}
+        setIsLoggedIn={setIsLoggedIn}
+      />
     </div>
   );
 };

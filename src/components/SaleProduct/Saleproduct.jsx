@@ -31,7 +31,7 @@ const itemsPro = [
   },
 ];
 
-const Saleproduct = () => {
+const Saleproduct = ({ handleUserLogin }) => {
   return (
     <div className="dark:bg-gray-800">
       <div className="container py-24 text-center">
@@ -71,7 +71,10 @@ const Saleproduct = () => {
             </div>
           ))}
         </div>
-        <button className="p-3 rounded-full bg-primary mt-12 text-gray-500">
+        <button
+          className="p-3 rounded-full bg-primary mt-12 text-gray-500"
+          onClick={() => handleUserLogin()}
+        >
           Buy now
         </button>
       </div>

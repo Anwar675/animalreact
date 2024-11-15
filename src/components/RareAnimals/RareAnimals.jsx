@@ -97,14 +97,14 @@ const RareAnimals = () => {
                   alt=""
                   className={`max-w-[150px] md:max-w-[150px]  lg:max-w-[210px] block mx-auto transform  ${
                     data.id === 3
-                      ? "sm:-translate-y-32  md:translate-y-[-70px] lg:-translate-y-28"
+                      ? "sm:-translate-y-24  md:translate-y-[-100px] lg:-translate-y-28 -translate-y-16"
                       : "sm-translate-y-24 -translate-y-20 "
                   } group-hover:scale-105 duration-300 drop-shadow-sm`}
                 />
               </div>
               {/* details */}
               <div className="p-4 text-center ">
-                <h1 className="dark:text-white text-[18px] font-bold">
+                <h1 className="dark:text-white text-[18px] font-bold line-clamp-1">
                   {data.name}
                 </h1>
                 <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">

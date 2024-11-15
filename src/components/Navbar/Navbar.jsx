@@ -86,7 +86,8 @@ const Dropdownlink = [
     link: "/#report",
   },
 ];
-const Navbar = ({ handleUserLogin }) => {
+
+const Navbar = ({ handleUserLogin, isLoggedIn }) => {
   return (
     <div className="shadow-lg dark:bg-gray-900 dark:text-white">
       <div className="bg-primary/50 py-1">
@@ -113,12 +114,14 @@ const Navbar = ({ handleUserLogin }) => {
               <DarkMode />
             </div>
             {/* order button */}
-            <button
-              onClick={() => handleUserLogin()}
-              className="bg-gradient-to-r from-primary to-[#ffc05b] transition-all duration-200 py-1 px-4 rounded-full"
-            >
-              <FaRegCircleUser className="fill-white text-2xl" />
-            </button>
+            {!isLoggedIn && (
+              <button
+                onClick={handleUserLogin}
+                className="bg-gradient-to-r from-primary to-[#ffc05b] transition-all duration-200 py-1 px-4 rounded-full"
+              >
+                <FaRegCircleUser className="fill-white text-2xl" />
+              </button>
+            )}
           </div>
         </div>
       </div>

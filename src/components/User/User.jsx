@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { IoCloseOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import logo2 from "../../assets/img/logo2.png";
 
-const User = ({ userOder, setUserOder }) => {
+const User = ({ userOder, setUserOder, setIsLoggedIn }) => {
+  const nagative = useNavigate();
+  const [ishover, setIshover] = useState(false);
+  const [email, setEmail] = useState("");
+  const [errormessage, setErrormessage] = useState("");
+
+  const ValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleLogin = () => {
+    if (ValidEmail(email)) {
+      setIsLoggedIn(true);
+      setUserOder(false);
+      nagative("/");
+    } else {
+      setIsLoggedIn(false);
+      setUserOder(true);
+      nagative("/#");
+    }
+  };
+
   return (
     <>
       {userOder && (
@@ -29,8 +52,24 @@ const User = ({ userOder, setUserOder }) => {
                   <input
                     className="p-2 w-full outline-textcolor border border-gray-400 rounded-md"
                     type="text"
+                    value={email}
                     placeholder="example@gmail.com"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      errormessage("");
+                    }}
+                    onMouseLeave={() => {
+                      if (email.trim() === "" || !ValidEmail(email)) {
+                        setIshover(true);
+                        setErrormessage("This email is not valid");
+                      } else {
+                        setIshover(false);
+                        setErrormessage("");
+                      }
+                    }}
+                    style={{ outline: ishover ? "1px solid red" : "" }}
                   />
+                  <p className="absolute text-red-400">{errormessage}</p>
                 </div>
                 <div>
                   <p className="py-2">Password</p>
@@ -49,7 +88,10 @@ const User = ({ userOder, setUserOder }) => {
                     Forgot password?
                   </a>
                 </div>
-                <button className="p-3 bg-secondary rounded-lg text-white font-bold">
+                <button
+                  className="p-3 bg-secondary rounded-lg text-white font-bold"
+                  onClick={handleLogin}
+                >
                   Sign in
                 </button>
                 <p className="text-gray-300">
